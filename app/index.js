@@ -22,12 +22,40 @@ DrupalBootstrapThemeGenerator.prototype.askFor = function askFor() {
   // have Yeoman greet the user.
   console.log(this.yeoman);
 
-  var prompts = [{
-    type: 'confirm',
-    name: 'someOption',
-    message: 'Would you like to enable this option?',
-    default: true
-  }];
+  var prompts = [
+    {
+      name: 'themeName',
+      message: 'What would you like to call your theme?'
+    },
+    {
+      name: 'themeDescription',
+      message: 'Please provide a description for your theme'
+    },
+    {
+      name: 'themeDrupalVersion',
+      type: 'list',
+      message: 'What version of Drupal does this theme require?',
+      choices: [
+        {
+          name: 'Drupal 7',
+          value: '7'
+        }
+      ],
+      default: 0
+    },
+    {
+      name: 'themeUsesLESS',
+      message: 'Do you want to use super awesome LESS instead of plain old CSS?',
+      type: 'confirm',
+      default: true
+    },
+    {
+      name: 'themeUsesCoffee',
+      message: 'Do you want to use super aweseom Coffee Script instead of plain old Javascript?',
+      type: 'confirm',
+      default: true
+    }
+  ];
 
   this.prompt(prompts, function (props) {
     this.someOption = props.someOption;
