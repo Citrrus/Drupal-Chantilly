@@ -62,7 +62,11 @@ DrupalBootstrapThemeGenerator.prototype.askFor = function askFor() {
   ];
 
   this.prompt(prompts, function (props) {
-    this.someOption = props.someOption;
+    
+    this.themeDescription = props.themeDescription;
+    this.themeDrupalVersion = props.themeDrupalVersion;
+    this.themeUsesLESS = props.themeUsesLESS;
+    this.themeUsesCoffee = props.themeUsesCoffee;
 
     cb();
   }.bind(this));
