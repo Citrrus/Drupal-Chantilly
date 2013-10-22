@@ -89,6 +89,8 @@ DrupalBootstrapThemeGenerator.prototype.app = function app() {
   this.mkdir('coffee');
   this.mkdir('templates');
 
+  this.template('bootstrap_subtheme/_bootstrap_subtheme.info', this.themeName + '.info');
+
   this.copy('_package.json', 'package.json');
   this.copy('_bower.json', 'bower.json');
 };
