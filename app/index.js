@@ -3,9 +3,17 @@ var util = require('util');
 var path = require('path');
 var yeoman = require('yeoman-generator');
 
+var _ = require('lodash');
+_.str = require('underscore.string');
+
+_.mixin(_.str.exports());
 
 var DrupalBootstrapThemeGenerator = module.exports = function DrupalBootstrapThemeGenerator(args, options, config) {
   yeoman.generators.Base.apply(this, arguments);
+
+  // determine theme name from cwd and form a theme name according to Drupal standards
+  this.dirName = path.basename(process.cwd());
+  this.themeName = _(_.slugify(this.dirName)).underscored();
 
   this.on('end', function () {
     this.installDependencies({ skipInstall: options['skip-install'] });
@@ -23,10 +31,6 @@ DrupalBootstrapThemeGenerator.prototype.askFor = function askFor() {
   console.log(this.yeoman);
 
   var prompts = [
-    {
-      name: 'themeName',
-      message: 'What would you like to call your theme?'
-    },
     {
       name: 'themeDescription',
       message: 'Please provide a description for your theme'
