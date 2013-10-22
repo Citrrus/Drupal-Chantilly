@@ -71,8 +71,10 @@ DrupalBootstrapThemeGenerator.prototype.askFor = function askFor() {
     
     this.themeDescription = props.themeDescription;
     this.themeDrupalVersion = props.themeDrupalVersion;
-    this.themeUsesLESS = props.themeUsesLESS;
-    this.themeUsesCoffee = props.themeUsesCoffee;
+    // the prompts aren't actually going to do anything for now.
+    this.themeUsesLESS = true;
+    this.themeUsesCoffee = true;
+    this.themeUsesCDN = false;
 
     cb();
   }.bind(this));
