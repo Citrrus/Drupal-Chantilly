@@ -90,6 +90,8 @@ DrupalBootstrapThemeGenerator.prototype.app = function app() {
   this.mkdir('coffee');
   this.mkdir('templates');
 
+  this.template('Gruntfile.js', 'Gruntfile.js');
+
   this.template('bootstrap_subtheme/_bootstrap_subtheme.info', this.themeName + '.info');
 
   this.copy('bootstrap_subtheme/less/bootstrap.less', 'less/base/bootstrap.less');
