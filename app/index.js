@@ -81,8 +81,13 @@ DrupalBootstrapThemeGenerator.prototype.askFor = function askFor() {
 };
 
 DrupalBootstrapThemeGenerator.prototype.app = function app() {
-  this.mkdir('app');
-  this.mkdir('app/templates');
+
+  this.mkdir('css');
+  this.mkdir('less');
+  this.mkdir('images');
+  this.mkdir('js');
+  this.mkdir('coffee');
+  this.mkdir('templates');
 
   this.copy('_package.json', 'package.json');
   this.copy('_bower.json', 'bower.json');
