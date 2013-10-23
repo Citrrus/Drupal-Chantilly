@@ -24,6 +24,16 @@ $ yo drupal-bootstrap-theme
 
 and follow the prompts.
 
+After your theme's created, run 
+
+```
+$ grunt watch
+```
+
+And all your LESS changes will be compiled automagically on save.
+
+Turn off Drupal CSS Caching for best results while developing your theme.
+
 ### What is Drupal?
 
 [Drupal](http://drupal.org) is an Open Source CMS used by tons and tons of websites.
