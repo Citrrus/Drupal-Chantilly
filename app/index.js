@@ -55,7 +55,7 @@ DrupalBootstrapThemeGenerator.prototype.askFor = function askFor() {
     },
     {
       name: 'themeUsesCoffee',
-      message: 'Do you want to use super aweseom Coffee Script instead of plain old Javascript?',
+      message: 'Do you want to use super awesome Coffee Script instead of plain old Javascript?',
       type: 'confirm',
       default: true
     },
