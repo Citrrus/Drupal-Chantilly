@@ -1,6 +1,8 @@
 {
-  "name": "package",
-  "version": "0.0.0",
-  "dependencies": {}
+  "name": "<%= themeName %>",
+  "version": "0.0.1",
+  "dependencies": {
+    "twitter" : "~2.3.2"
+  }
 }
 

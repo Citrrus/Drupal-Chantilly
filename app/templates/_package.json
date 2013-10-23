@@ -1,5 +1,9 @@
 {
-  "name": "package",
-  "version": "0.0.0",
-  "dependencies": {}
+  "name": "<%= _.slugify(themeName).replace(/\-/g, '_') %>",
+  "version": "0.0.1",
+  "dependencies": {
+    "grunt": "~0.4.1",    
+    "grunt-contrib-watch": "~0.4.3",
+    "grunt-contrib-less": "~0.5.0"
+  }
 }

@@ -1,9 +1,46 @@
-# generator-drupal-bootstrap-theme [![Build Status](https://secure.travis-ci.org/benmcginnis/generator-drupal-bootstrap-theme.png?branch=master)](https://travis-ci.org/benmcginnis/generator-drupal-bootstrap-theme)
+# generator-drupal-bootstrap-theme 
 
 A generator for [Yeoman](http://yeoman.io).
 
-
 ## Getting Started
+
+### For those familiar with Drupal & Yeoman
+
+#### Requirements
+
+Currently, this only works for Drupal 7.x
+
+As noted on [Bootstrap](http://drupal.org/project/bootstrap) your theme requires the [jQuery Update Module](https://drupal.org/project/jquery_update).
+
+You will also need to install the Twitter Bootstrap base theme, this generator currently requires [7.x-2.2](http://ftp.drupal.org/files/projects/bootstrap-7.x-2.2.tar.gz)
+
+So you've installed the generator using the instructions below and you're ready to get started? Great!
+
+Create your theme directory in your chosen place and then run 
+
+```
+$ yo drupal-bootstrap-theme
+```
+
+and follow the prompts.
+
+After your theme's created, run 
+
+```
+$ grunt watch
+```
+
+And all your LESS changes will be compiled automagically on save.
+
+Turn off Drupal CSS Caching for best results while developing your theme.
+
+### What is Drupal?
+
+[Drupal](http://drupal.org) is an Open Source CMS used by tons and tons of websites.
+
+It lets you create themes, such as the [Bootstrap](http://drupal.org/project/bootstrap) responsive theme based on [Twitter Bootstrap](http://getbootstrap.com)
+
+This software helps get you started creating Drupal themes with Twitter Bootstrap.
 
 ### What is Yeoman?
 
