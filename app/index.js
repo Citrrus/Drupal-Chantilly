@@ -8,7 +8,8 @@ _.str = require('underscore.string');
 
 _.mixin(_.str.exports());
 
-var DrupalBootstrapThemeGenerator = module.exports = function DrupalBootstrapThemeGenerator(args, options, config) {
+var DrupalBootstrapThemeGenerator = module.exports = function DrupalBootstrapThemeGenerator(args, options, config) 
+{
   yeoman.generators.Base.apply(this, arguments);
 
   // determine theme name from cwd and form a theme name according to Drupal standards
@@ -24,13 +25,15 @@ var DrupalBootstrapThemeGenerator = module.exports = function DrupalBootstrapThe
 
 util.inherits(DrupalBootstrapThemeGenerator, yeoman.generators.Base);
 
-DrupalBootstrapThemeGenerator.prototype.askFor = function askFor() {
+DrupalBootstrapThemeGenerator.prototype.askFor = function askFor() 
+{
   var cb = this.async();
 
   // have Yeoman greet the user.
   console.log(this.yeoman);
 
-  var prompts = [
+  var prompts = 
+  [
     {
       name: 'themeDescription',
       message: 'Please provide a description for your theme'
@@ -49,46 +52,90 @@ DrupalBootstrapThemeGenerator.prototype.askFor = function askFor() {
     }
   ];
 
-  this.prompt(prompts, function (props) {
+  this.prompt(prompts, function (props) 
+  {
     
     this.themeDescription = props.themeDescription;
     this.themeDrupalVersion = props.themeDrupalVersion;
-    // the prompts aren't actually going to do anything for now.
-    this.themeUsesLESS = true;
-    this.themeUsesCoffee = true;
+    this.themeUsesLESS = props.themeUsesLESS;
+    this.themeUsesCoffee = props.themeUsesCoffee;
 
     cb();
   }.bind(this));
 };
 
-DrupalBootstrapThemeGenerator.prototype.app = function app() {
-
-  this.mkdir('css');
-  this.mkdir('less');
-  this.mkdir('less/base');
-  this.mkdir('images');
-  this.mkdir('js');
-  this.mkdir('coffee');
+DrupalBootstrapThemeGenerator.prototype.theme = function theme() 
+{
   this.mkdir('templates');
+  this.template('_template.php', 'template.php');
+  this.template('_templates_readme.txt', 'templates/readme.txt');
 
-  this.template('_gruntfile.js', 'Gruntfile.js');
+  this.mkdir('php');
+  this.template('_php_readme.txt', 'php/readme.txt');
 
   this.template('bootstrap_subtheme/_bootstrap_subtheme.info', this.themeName + '.info');
-
-  this.copy('bootstrap_subtheme/less/bootstrap.less', 'less/base/bootstrap.less');
-  this.copy('bootstrap_subtheme/less/responsive.less', 'less/base/responsive.less');
-  this.copy('bootstrap_subtheme/less/variables.less', 'less/variables.less');
-  this.copy('bootstrap_subtheme/less/overrides.less', 'less/overrides.less');
-
-  this.copy('bootstrap_subtheme/less/style.less', 'less/style.less');
-
-  this.template('_script.coffee', 'coffee/script.coffee');
-
-  this.copy('_package.json', 'package.json');
-  this.copy('_bower.json', 'bower.json');
 };
 
-DrupalBootstrapThemeGenerator.prototype.projectfiles = function projectfiles() {
+DrupalBootstrapThemeGenerator.prototype.images = function images()
+{
+  this.mkdir('images');
+  this.copy('_logo.png', 'logo.png');
+  this.copy('bootstrap_subtheme/screenshot.png', 'screenshot.png');
+}
+
+DrupalBootstrapThemeGenerator.prototype.gruntfile = function gruntfile()
+{
+  // don't make a gruntfile if we don't need it
+  if(this.themeUsesCoffee || this.themeUsesLESS)
+  {
+    this.template('_gruntfile.js', 'Gruntfile.js');
+  }
+
+  this.template('_package.json', 'package.json');
+}
+
+DrupalBootstrapThemeGenerator.prototype.styleFiles = function styleFiles()
+{
+  this.mkdir('css');
+  this.template('_style.css', 'css/style.css');
+  
+  if(this.themeUsesLESS)
+  {
+    //directory structure for LESS
+    this.mkdir('less');
+    this.mkdir('less/base');  
+
+    // bootstrap LESS files
+    this.copy('bootstrap_subtheme/less/bootstrap.less', 'less/base/bootstrap.less');
+    this.copy('bootstrap_subtheme/less/responsive.less', 'less/base/responsive.less');
+    this.copy('bootstrap_subtheme/less/variables.less', 'less/variables.less');
+    this.copy('bootstrap_subtheme/less/overrides.less', 'less/overrides.less');
+
+    // primary LESS file
+    this.copy('bootstrap_subtheme/less/style.less', 'less/style.less');
+  }
+  else
+  {
+    // need to do something about the bootstrap templates if we're just using CSS
+    
+  }
+}
+
+DrupalBootstrapThemeGenerator.prototype.scriptfiles = function scriptFiles()
+{
+  this.mkdir('js');
+  this.template('_script.js', 'js/script.js');
+
+  if(this.themeUsesCoffee)
+  {
+    this.mkdir('coffee');
+    this.template('_script.coffee', 'coffee/script.coffee');
+  }
+}
+
+DrupalBootstrapThemeGenerator.prototype.projectfiles = function projectfiles() 
+{
+  this.copy('_bower.json', 'bower.json');
   this.copy('editorconfig', '.editorconfig');
   this.copy('jshintrc', '.jshintrc');
 };

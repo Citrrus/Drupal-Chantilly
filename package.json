@@ -1,6 +1,6 @@
 {
   "name": "generator-drupal-bootstrap-theme",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "A Yeoman generator for Bootstrap Based Drupal Themes",
   "keywords": [
     "yeoman-generator",
@@ -10,17 +10,17 @@
     "bootsrap",
     "font-awesome"
   ],
-  "homepage": "https://github.com/benmcginnis/generator-drupal-bootstrap-theme",
-  "bugs": "https://github.com/benmcginnis/generator-drupal-bootstrap-theme/issues",
+  "homepage": "https://github.com/Citrrus/generator-drupal-bootstrap-theme",
+  "bugs": "https://github.com/Citrrus/generator-drupal-bootstrap-theme/issues",
   "author": {
     "name": "Ben McGinnis",
     "email": "bmcginnis@citrrus.com",
-    "url": "https://github.com/benmcginnis"
+    "url": "https://github.com/Citrrus"
   },
   "main": "app/index.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/benmcginnis/generator-drupal-bootstrap-theme.git"
+    "url": "git://github.com/Citrrus/generator-drupal-bootstrap-theme.git"
   },
   "scripts": {
     "test": "mocha"
