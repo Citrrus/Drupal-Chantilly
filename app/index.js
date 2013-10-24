@@ -57,9 +57,8 @@ DrupalBootstrapThemeGenerator.prototype.askFor = function askFor()
     
     this.themeDescription = props.themeDescription;
     this.themeDrupalVersion = props.themeDrupalVersion;
-    // the prompts aren't actually going to do anything for now.
-    this.themeUsesCoffee = true;
     this.themeUsesLESS = props.themeUsesLESS;
+    this.themeUsesCoffee = props.themeUsesCoffee;
 
     cb();
   }.bind(this));
@@ -68,9 +67,8 @@ DrupalBootstrapThemeGenerator.prototype.askFor = function askFor()
 DrupalBootstrapThemeGenerator.prototype.app = function app() 
 {
   this.mkdir('images');
-  this.mkdir('js');
-  this.mkdir('coffee');
   this.mkdir('templates');
+  this.mkdir('php');
 
   this.template('_gruntfile.js', 'Gruntfile.js');
 
@@ -92,21 +90,32 @@ DrupalBootstrapThemeGenerator.prototype.styleFiles = function styleFiles()
     this.mkdir('less/base');  
 
     // bootstrap LESS files
-  this.copy('bootstrap_subtheme/less/bootstrap.less', 'less/base/bootstrap.less');
-  this.copy('bootstrap_subtheme/less/responsive.less', 'less/base/responsive.less');
-  this.copy('bootstrap_subtheme/less/variables.less', 'less/variables.less');
-  this.copy('bootstrap_subtheme/less/overrides.less', 'less/overrides.less');
+    this.copy('bootstrap_subtheme/less/bootstrap.less', 'less/base/bootstrap.less');
+    this.copy('bootstrap_subtheme/less/responsive.less', 'less/base/responsive.less');
+    this.copy('bootstrap_subtheme/less/variables.less', 'less/variables.less');
+    this.copy('bootstrap_subtheme/less/overrides.less', 'less/overrides.less');
 
     // primary LESS file
-  this.copy('bootstrap_subtheme/less/style.less', 'less/style.less');
+    this.copy('bootstrap_subtheme/less/style.less', 'less/style.less');
   }
   else
   {
     // need to do something about the bootstrap templates if we're just using CSS
-
+    
   }
 }
 
+DrupalBootstrapThemeGenerator.prototype.scriptfiles = function scriptFiles()
+{
+  this.mkdir('js');
+  this.template('_script.js', 'js/script.js');
+
+  if(this.themeUsesCoffee)
+  {
+    this.mkdir('coffee');
+    this.template('_script.coffee', 'coffee/script.coffee');
+  }
+}
 
 DrupalBootstrapThemeGenerator.prototype.projectfiles = function projectfiles() 
 {
