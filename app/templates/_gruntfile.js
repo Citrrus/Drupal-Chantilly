@@ -2,8 +2,12 @@
 
 module.exports = function(grunt)
 {
+  <% if(themeUsesLESS) { %>
   grunt.loadNpmTasks('grunt-contrib-less');
+  <% } %>
+  <% if(themeUsesCoffee) { %>
   grunt.loadNpmTasks('grunt-contrib-coffee');
+  <% } %>
   grunt.loadNpmTasks('grunt-contrib-watch');
 
   // load all grunt tasks

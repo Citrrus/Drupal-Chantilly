@@ -70,13 +70,21 @@ DrupalBootstrapThemeGenerator.prototype.app = function app()
   this.mkdir('templates');
   this.mkdir('php');
 
-  this.template('_gruntfile.js', 'Gruntfile.js');
-
   this.template('bootstrap_subtheme/_bootstrap_subtheme.info', this.themeName + '.info');
 
-  this.copy('_package.json', 'package.json');
   this.copy('_bower.json', 'bower.json');
 };
+
+DrupalBootstrapThemeGenerator.prototype.gruntfile = function gruntfile()
+{
+  // don't make a gruntfile if we don't need it
+  if(this.themeUsesCoffee || this.themeUsesLESS)
+  {
+    this.template('_gruntfile.js', 'Gruntfile.js');
+  }
+
+  this.template('_package.json', 'package.json');
+}
 
 DrupalBootstrapThemeGenerator.prototype.styleFiles = function styleFiles()
 {
