@@ -9,6 +9,7 @@ module.exports = function(grunt)
   // load all grunt tasks
   grunt.initConfig({
     watch: {
+      <% if(themeUsesLESS) { %>
       styles: {
         files: ['**/*.less'],
         tasks: ['less'],
@@ -16,6 +17,7 @@ module.exports = function(grunt)
           spawn: false,
         },
       },
+      <%}%>
       <% if(themeUsesCoffee) { %>
       scripts: {
         files: ['**/*.coffee'],
