@@ -67,7 +67,11 @@ DrupalBootstrapThemeGenerator.prototype.askFor = function askFor()
 DrupalBootstrapThemeGenerator.prototype.theme = function theme() 
 {
   this.mkdir('templates');
+  this.template('_template.php', 'template.php');
+  this.template('_templates_readme.txt', 'templates/readme.txt');
+
   this.mkdir('php');
+  this.template('_php_readme.txt', 'php/readme.txt');
 
   this.template('bootstrap_subtheme/_bootstrap_subtheme.info', this.themeName + '.info');
 };
