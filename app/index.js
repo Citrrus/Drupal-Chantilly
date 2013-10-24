@@ -70,8 +70,6 @@ DrupalBootstrapThemeGenerator.prototype.theme = function theme()
   this.mkdir('php');
 
   this.template('bootstrap_subtheme/_bootstrap_subtheme.info', this.themeName + '.info');
-
-  this.copy('_bower.json', 'bower.json');
 };
 
 DrupalBootstrapThemeGenerator.prototype.images = function images()
@@ -133,6 +131,7 @@ DrupalBootstrapThemeGenerator.prototype.scriptfiles = function scriptFiles()
 
 DrupalBootstrapThemeGenerator.prototype.projectfiles = function projectfiles() 
 {
+  this.copy('_bower.json', 'bower.json');
   this.copy('editorconfig', '.editorconfig');
   this.copy('jshintrc', '.jshintrc');
 };
