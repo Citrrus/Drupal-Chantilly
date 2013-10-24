@@ -58,18 +58,15 @@ DrupalBootstrapThemeGenerator.prototype.askFor = function askFor()
     this.themeDescription = props.themeDescription;
     this.themeDrupalVersion = props.themeDrupalVersion;
     // the prompts aren't actually going to do anything for now.
-    this.themeUsesLESS = true;
     this.themeUsesCoffee = true;
+    this.themeUsesLESS = props.themeUsesLESS;
 
     cb();
   }.bind(this));
 };
 
-DrupalBootstrapThemeGenerator.prototype.app = function app() {
-
-  this.mkdir('css');
-  this.mkdir('less');
-  this.mkdir('less/base');
+DrupalBootstrapThemeGenerator.prototype.app = function app() 
+{
   this.mkdir('images');
   this.mkdir('js');
   this.mkdir('coffee');
@@ -79,18 +76,37 @@ DrupalBootstrapThemeGenerator.prototype.app = function app() {
 
   this.template('bootstrap_subtheme/_bootstrap_subtheme.info', this.themeName + '.info');
 
+  this.copy('_package.json', 'package.json');
+  this.copy('_bower.json', 'bower.json');
+};
+
+DrupalBootstrapThemeGenerator.prototype.styleFiles = function styleFiles()
+{
+  this.mkdir('css');
+  this.template('_style.css', 'css/style.css');
+  
+  if(this.themeUsesLESS)
+  {
+    //directory structure for LESS
+    this.mkdir('less');
+    this.mkdir('less/base');  
+
+    // bootstrap LESS files
   this.copy('bootstrap_subtheme/less/bootstrap.less', 'less/base/bootstrap.less');
   this.copy('bootstrap_subtheme/less/responsive.less', 'less/base/responsive.less');
   this.copy('bootstrap_subtheme/less/variables.less', 'less/variables.less');
   this.copy('bootstrap_subtheme/less/overrides.less', 'less/overrides.less');
 
+    // primary LESS file
   this.copy('bootstrap_subtheme/less/style.less', 'less/style.less');
+  }
+  else
+  {
+    // need to do something about the bootstrap templates if we're just using CSS
 
-  this.template('_script.coffee', 'coffee/script.coffee');
+  }
+}
 
-  this.copy('_package.json', 'package.json');
-  this.copy('_bower.json', 'bower.json');
-};
 
 DrupalBootstrapThemeGenerator.prototype.projectfiles = function projectfiles() 
 {
