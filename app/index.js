@@ -8,7 +8,8 @@ _.str = require('underscore.string');
 
 _.mixin(_.str.exports());
 
-var DrupalBootstrapThemeGenerator = module.exports = function DrupalBootstrapThemeGenerator(args, options, config) {
+var DrupalBootstrapThemeGenerator = module.exports = function DrupalBootstrapThemeGenerator(args, options, config) 
+{
   yeoman.generators.Base.apply(this, arguments);
 
   // determine theme name from cwd and form a theme name according to Drupal standards
@@ -24,13 +25,15 @@ var DrupalBootstrapThemeGenerator = module.exports = function DrupalBootstrapThe
 
 util.inherits(DrupalBootstrapThemeGenerator, yeoman.generators.Base);
 
-DrupalBootstrapThemeGenerator.prototype.askFor = function askFor() {
+DrupalBootstrapThemeGenerator.prototype.askFor = function askFor() 
+{
   var cb = this.async();
 
   // have Yeoman greet the user.
   console.log(this.yeoman);
 
-  var prompts = [
+  var prompts = 
+  [
     {
       name: 'themeDescription',
       message: 'Please provide a description for your theme'
@@ -49,7 +52,8 @@ DrupalBootstrapThemeGenerator.prototype.askFor = function askFor() {
     }
   ];
 
-  this.prompt(prompts, function (props) {
+  this.prompt(prompts, function (props) 
+  {
     
     this.themeDescription = props.themeDescription;
     this.themeDrupalVersion = props.themeDrupalVersion;
@@ -88,7 +92,8 @@ DrupalBootstrapThemeGenerator.prototype.app = function app() {
   this.copy('_bower.json', 'bower.json');
 };
 
-DrupalBootstrapThemeGenerator.prototype.projectfiles = function projectfiles() {
+DrupalBootstrapThemeGenerator.prototype.projectfiles = function projectfiles() 
+{
   this.copy('editorconfig', '.editorconfig');
   this.copy('jshintrc', '.jshintrc');
 };
