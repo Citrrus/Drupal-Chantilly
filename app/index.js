@@ -77,10 +77,12 @@ DrupalBootstrapThemeGenerator.prototype.app = function app() {
 
   this.copy('bootstrap_subtheme/less/bootstrap.less', 'less/base/bootstrap.less');
   this.copy('bootstrap_subtheme/less/responsive.less', 'less/base/responsive.less');
-
   this.copy('bootstrap_subtheme/less/variables.less', 'less/variables.less');
   this.copy('bootstrap_subtheme/less/overrides.less', 'less/overrides.less');
+
   this.copy('bootstrap_subtheme/less/style.less', 'less/style.less');
+
+  this.template('_script.coffee', 'coffee/script.coffee');
 
   this.copy('_package.json', 'package.json');
   this.copy('_bower.json', 'bower.json');
