@@ -64,7 +64,7 @@ DrupalBootstrapThemeGenerator.prototype.askFor = function askFor()
   }.bind(this));
 };
 
-DrupalBootstrapThemeGenerator.prototype.app = function app() 
+DrupalBootstrapThemeGenerator.prototype.theme = function theme() 
 {
   this.mkdir('images');
   this.mkdir('templates');
