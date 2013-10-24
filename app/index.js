@@ -58,12 +58,6 @@ DrupalBootstrapThemeGenerator.prototype.askFor = function askFor() {
       message: 'Do you want to use super awesome Coffee Script instead of plain old Javascript?',
       type: 'confirm',
       default: true
-    },
-    {
-      name: 'themeUsesCDN',
-      message: 'Do you want to use the Bootstrap CDN? By default this theme uses local files.',
-      type: 'confirm',
-      default: false
     }
   ];
 
@@ -74,7 +68,6 @@ DrupalBootstrapThemeGenerator.prototype.askFor = function askFor() {
     // the prompts aren't actually going to do anything for now.
     this.themeUsesLESS = true;
     this.themeUsesCoffee = true;
-    this.themeUsesCDN = false;
 
     cb();
   }.bind(this));
