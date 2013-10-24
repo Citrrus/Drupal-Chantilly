@@ -36,18 +36,6 @@ DrupalBootstrapThemeGenerator.prototype.askFor = function askFor() {
       message: 'Please provide a description for your theme'
     },
     {
-      name: 'themeDrupalVersion',
-      type: 'list',
-      message: 'What version of Drupal does this theme require?',
-      choices: [
-        {
-          name: 'Drupal 7',
-          value: '7'
-        }
-      ],
-      default: 0
-    },
-    {
       name: 'themeUsesLESS',
       message: 'Do you want to use super awesome LESS instead of plain old CSS?',
       type: 'confirm',
