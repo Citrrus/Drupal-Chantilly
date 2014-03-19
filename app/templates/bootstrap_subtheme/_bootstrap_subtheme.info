@@ -19,7 +19,7 @@ stylesheets[all][] = css/style.css
 ;**********************************
 ; METHOD 1: Bootstrap Source Files
 ;**********************************
-; 
+;
 ; ; Scripts
 scripts[] = 'bower_components/twitter/js/bootstrap-affix.js'
 scripts[] = 'bower_components/twitter/js/bootstrap-alert.js'
@@ -33,7 +33,9 @@ scripts[] = 'bower_components/twitter/js/bootstrap-popover.js'
 scripts[] = 'bower_components/twitter/js/bootstrap-scrollspy.js'
 scripts[] = 'bower_components/twitter/js/bootstrap-transition.js'
 scripts[] = 'bower_components/twitter/js/bootstrap-typeahead.js'
-; 
+
+scripts[] = 'js/script.js'
+;
 ; ; Settings inherited by base theme, uncomment to override.
 ; ;settings[toggle_name] = 0
 ; ;settings[toggle_search] = 1
@@ -44,7 +46,7 @@ settings[cdn_bootstrap] = 0
 ;*************************
 ; METHOD 2: Bootstrap CDN
 ;*************************
-; 
+;
 ; ; Settings inherited by base theme, uncomment to override.
 ; ;settings[toggle_name] = 0
 ; ;settings[toggle_search] = 1
