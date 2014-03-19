@@ -1,4 +1,4 @@
-# generator-drupal-bootstrap-theme 
+# DrupalChantilly
 
 A generator for [Yeoman](http://yeoman.io).
 
@@ -16,7 +16,7 @@ You will also need to install the Twitter Bootstrap base theme, this generator c
 
 So you've installed the generator using the instructions below and you're ready to get started? Great!
 
-Create your theme directory in your chosen place and then run 
+Create your theme directory in your chosen place and then run
 
 ```
 $ yo drupal-bootstrap-theme
@@ -24,7 +24,7 @@ $ yo drupal-bootstrap-theme
 
 and follow the prompts.
 
-After your theme's created, run 
+After your theme's created, run
 
 ```
 $ grunt watch
