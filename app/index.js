@@ -114,11 +114,6 @@ DrupalBootstrapThemeGenerator.prototype.styleFiles = function styleFiles()
     // primary LESS file
     this.copy('bootstrap_subtheme/less/style.less', 'less/style.less');
   }
-  else
-  {
-    // need to do something about the bootstrap templates if we're just using CSS
-
-  }
 }
 
 DrupalBootstrapThemeGenerator.prototype.scriptfiles = function scriptFiles()
