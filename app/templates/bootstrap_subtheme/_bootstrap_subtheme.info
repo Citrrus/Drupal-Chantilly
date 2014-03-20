@@ -14,6 +14,10 @@ regions[sidebar_second] = 'Secondary'
 regions[footer]         = 'Footer'
 
 ; Stylesheets
+<% if(!themeUsesLESS) { %>
+stylesheets[all][] = bower_components/bootstrap-css/css/bootstrap-responsive.css
+stylesheets[all][] = bower_components/bootstrap-css/css/bootstrap.css
+<% } %>
 stylesheets[all][] = css/style.css
 
 ;**********************************

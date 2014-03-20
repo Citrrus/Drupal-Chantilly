@@ -8,7 +8,7 @@ _.str = require('underscore.string');
 
 _.mixin(_.str.exports());
 
-var DrupalBootstrapThemeGenerator = module.exports = function DrupalBootstrapThemeGenerator(args, options, config) 
+var DrupalBootstrapThemeGenerator = module.exports = function DrupalBootstrapThemeGenerator(args, options, config)
 {
   yeoman.generators.Base.apply(this, arguments);
 
@@ -25,14 +25,14 @@ var DrupalBootstrapThemeGenerator = module.exports = function DrupalBootstrapThe
 
 util.inherits(DrupalBootstrapThemeGenerator, yeoman.generators.Base);
 
-DrupalBootstrapThemeGenerator.prototype.askFor = function askFor() 
+DrupalBootstrapThemeGenerator.prototype.askFor = function askFor()
 {
   var cb = this.async();
 
   // have Yeoman greet the user.
   console.log(this.yeoman);
 
-  var prompts = 
+  var prompts =
   [
     {
       name: 'themeDescription',
@@ -52,9 +52,9 @@ DrupalBootstrapThemeGenerator.prototype.askFor = function askFor()
     }
   ];
 
-  this.prompt(prompts, function (props) 
+  this.prompt(prompts, function (props)
   {
-    
+
     this.themeDescription = props.themeDescription;
     this.themeDrupalVersion = props.themeDrupalVersion;
     this.themeUsesLESS = props.themeUsesLESS;
@@ -64,7 +64,7 @@ DrupalBootstrapThemeGenerator.prototype.askFor = function askFor()
   }.bind(this));
 };
 
-DrupalBootstrapThemeGenerator.prototype.theme = function theme() 
+DrupalBootstrapThemeGenerator.prototype.theme = function theme()
 {
   this.mkdir('templates');
   this.template('_template.php', 'template.php');
@@ -98,12 +98,12 @@ DrupalBootstrapThemeGenerator.prototype.styleFiles = function styleFiles()
 {
   this.mkdir('css');
   this.template('_style.css', 'css/style.css');
-  
+
   if(this.themeUsesLESS)
   {
     //directory structure for LESS
     this.mkdir('less');
-    this.mkdir('less/base');  
+    this.mkdir('less/base');
 
     // bootstrap LESS files
     this.copy('bootstrap_subtheme/less/bootstrap.less', 'less/base/bootstrap.less');
@@ -117,7 +117,7 @@ DrupalBootstrapThemeGenerator.prototype.styleFiles = function styleFiles()
   else
   {
     // need to do something about the bootstrap templates if we're just using CSS
-    
+
   }
 }
 
@@ -133,7 +133,7 @@ DrupalBootstrapThemeGenerator.prototype.scriptfiles = function scriptFiles()
   }
 }
 
-DrupalBootstrapThemeGenerator.prototype.projectfiles = function projectfiles() 
+DrupalBootstrapThemeGenerator.prototype.projectfiles = function projectfiles()
 {
   this.copy('_bower.json', 'bower.json');
   this.copy('editorconfig', '.editorconfig');
